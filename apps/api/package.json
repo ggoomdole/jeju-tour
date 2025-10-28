@@ -1,0 +1,43 @@
+{
+  "name": "ggoomdole-be",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "dev": "nodemon --exec \"node -r esbuild-register ./src/app.ts\" -e .ts",
+    "start": "node -r esbuild-register ./src/app.ts",
+    "lint": "eslint",
+    "format": "prettier --write \"**/*.ts\""
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.842.0",
+    "@prisma/client": "^6.11.0",
+    "axios": "^1.10.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.1",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@repo/types": "workspace:*",
+    "@types/axios": "^0.14.4",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.22",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^20",
+    "esbuild": "^0.20.1",
+    "esbuild-register": "^3.5.0",
+    "nodemon": "^3.1.0",
+    "prisma": "^6.11.0",
+    "typescript": "^5.8.2"
+  },
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

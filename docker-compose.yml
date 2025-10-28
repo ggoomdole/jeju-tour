@@ -1,0 +1,39 @@
+services:
+  db:
+    image: mysql:latest
+    container_name: ggoomdole-mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: ggoomdole
+      MYSQL_USER: ggoom
+      MYSQL_PASSWORD: 1234
+    volumes:
+      - mysql-data:/var/lib/mysql
+    command: 
+      - --character-set-server=utf8mb4 
+      - --collation-server=utf8mb4_general_ci
+    networks:
+      - ggoomdole-net
+  
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/src/Dockerfile
+    container_name: server
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: mysql://ggoom:1234@db:3306/ggoomdole
+    networks:
+      - ggoomdole-net
+    command: ["sh", "-c", "pnpm install && pnpm prisma migrate deploy && pnpm start"]
+
+volumes:
+  mysql-data:
+
+networks:
+  ggoomdole-net:

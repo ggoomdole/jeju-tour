@@ -1,0 +1,41 @@
+name: Check Backend
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  BACKEND-CI:
+    if: ${{ contains(github.event.pull_request.title, '[BE]') }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Enable Corepack & Prepare pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Create .env.test file for SQLite
+        run: |
+          echo "${{ secrets.BE_PROD_ENV }}" > apps/api/.env
+
+      - name: Generate Prisma Client
+        run: pnpm prisma generate
+        working-directory: apps/api
+
+      - name: Validate Prisma Schema
+        run: pnpm prisma validate
+        working-directory: apps/api
+
+      - name: Build backend
+        run: pnpm run build:api

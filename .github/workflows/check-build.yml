@@ -1,0 +1,32 @@
+name: Check Build
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  FE-Build:
+    # PR 제목에 "FE"가포함된 경우에만 실행
+    if: ${{ contains(github.event.pull_request.title, '[FE]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          
+      - name: Enable Corepack & Prepare pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
+          
+      - name: Install dependencies
+        run: pnpm install
+          
+      - name: Create .env file
+        run: |
+          echo "${{ secrets.FE_PROD_ENV }}" > apps/web/.env
+
+      - name: Build
+        run: pnpm run build:web  

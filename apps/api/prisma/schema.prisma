@@ -1,0 +1,126 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model SearchKeyword {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  word      String
+  createAt  DateTime @default(now())
+  updateAt  DateTime @updatedAt
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade) // 유저 삭제 시 자동 삭제
+}
+
+model Spot {
+  id        String  @id
+  name      String
+  phone     String?
+  address   String
+  latitude  Float
+  longitude Float
+  hours     String?
+  avgRate   Int?
+
+  reviews        Review[] 
+  pilgrimageSpots PilgrimageSpot[]
+}
+
+model Review {
+  id        Int       @id @default(autoincrement())
+  userId    Int?       // nullable, 유저 삭제 시 NULL
+  spotId    String
+  text      String
+  rate      Int
+  imageUrls ReviewImage[]
+  createAt  DateTime @default(now())
+
+  user      User?     @relation(fields: [userId], references: [id], onDelete: SetNull) // 유저 삭제 시 NULL
+  spot      Spot      @relation(fields: [spotId], references: [id], onDelete: Cascade)
+}
+
+model ReviewImage {
+  id        Int     @id @default(autoincrement())
+  reviewId  Int
+  url       String
+
+  review    Review  @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+}
+
+model PilgrimageSpot {
+  pilgrimageId Int
+  spotId       String
+  number       Int
+  introSpot    String
+  request      Boolean
+  createAt     DateTime @default(now())
+  updateAt     DateTime @updatedAt
+
+  pilgrimage   Pilgrimage @relation(fields: [pilgrimageId], references: [id], onDelete: Cascade)
+  spot         Spot       @relation(fields: [spotId], references: [id], onDelete: Cascade)
+
+  @@id([pilgrimageId, spotId])
+}
+
+model PilgrimageUser {
+  userId       Int
+  pilgrimageId Int
+  type         Boolean   @default(false)
+  createAt     DateTime  @default(now())
+  updateAt     DateTime  @updatedAt
+
+  user         User       @relation(fields: [userId], references: [id], onDelete: Cascade) // 유저 삭제 시 자동 삭제
+  pilgrimage   Pilgrimage @relation(fields: [pilgrimageId], references: [id], onDelete: Cascade)
+
+  @@id([userId, pilgrimageId])
+}
+
+model Pilgrimage {
+  id         Int        @id @default(autoincrement())
+  title      String     @unique
+  imageUrl   String?
+  intro      String
+  search     Int        @default(0)
+  public     Boolean
+  createAt   DateTime   @default(now())
+  updateAt   DateTime   @updatedAt
+
+  categoryId Int
+  category   Category   @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  spots        PilgrimageSpot[]
+  participants PilgrimageUser[]
+}
+
+model User {
+  id           Int            @id @default(autoincrement())
+  kakaoId      String         @unique
+  nickName     String         @unique
+  profileImage String?
+  native       Native?
+  createAt     DateTime       @default(now())
+  updateAt     DateTime       @updatedAt
+
+  searchKeywords SearchKeyword[]
+  reviews        Review[]
+  pilgrimages    PilgrimageUser[]
+}
+
+model Category {
+  id         Int     @id @default(autoincrement())
+  name       String
+
+  pilgrimages Pilgrimage[]
+}
+
+enum Native {
+  SHORT_TERM
+  MID_TERM
+  LONG_TERM
+  RESIDENT
+}
