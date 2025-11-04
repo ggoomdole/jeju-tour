@@ -22,7 +22,7 @@ interface RequestTabProps {
   promisedResponse: Usable<BaseResponseDTO<RoadResponseDTO>>;
 }
 
-const DEFAULT_THUMBNAIL = "/static/default-thumbnail.png";
+const DEFAULT_THUMBNAIL = "/static/default-thumbnail.webp";
 
 export default function RequestTab({ id, query, form, promisedResponse }: RequestTabProps) {
   const params = getParams({ query }, { tab: "find-by-map" });

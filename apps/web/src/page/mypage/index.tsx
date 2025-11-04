@@ -7,7 +7,7 @@ interface MypagePageProps {
   user: userInfoDTO | null;
 }
 
-const defaultProfileImage = "/static/default-profile.png";
+const defaultProfileImage = "/static/default-profile.webp";
 
 export default function MypagePage({ user }: MypagePageProps) {
   const profileImage = user
@@ -17,7 +17,7 @@ export default function MypagePage({ user }: MypagePageProps) {
     : defaultProfileImage;
 
   return (
-    <main className="bg-main-300">
+    <main className="bg-main-100">
       <section className="flex flex-col items-center justify-center gap-5 py-10">
         <Image
           src={profileImage}

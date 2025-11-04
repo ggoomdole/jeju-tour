@@ -27,7 +27,7 @@ export interface MapProps {
   };
 }
 
-const MARKER = "/static/map-pin.png";
+const MARKER = "/static/map-pin.webp";
 const MARKER_SELECTED = "/static/onboarding/harbang.webp";
 
 const onClearMarkers = (markers: TMapMarker[]) => {

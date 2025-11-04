@@ -31,7 +31,7 @@ interface FindByMapTabProps {
 }
 
 const TMAP_API_KEY = process.env.NEXT_PUBLIC_TMAP_API_KEY;
-const DEFAULT_THUMBNAIL = "/static/default-thumbnail.png";
+const DEFAULT_THUMBNAIL = "/static/default-thumbnail.webp";
 
 export default function FindByMapTab({
   query,

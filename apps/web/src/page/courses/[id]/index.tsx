@@ -41,8 +41,8 @@ interface CourseDetailPageProps {
 
 const TMAP_API_KEY = process.env.NEXT_PUBLIC_TMAP_API_KEY!;
 
-const DEFAULT_THUMBNAIL = "/static/default-thumbnail.png";
-const LOADING_IMAGE = "/static/loading.png";
+const DEFAULT_THUMBNAIL = "/static/default-thumbnail.webp";
+const LOADING_IMAGE = "/static/loading.webp";
 const MAX_SPOTS_LENGTH = 5;
 
 const checkSameMarker = ({ start, end }: { start: string; end: string }): boolean => {
@@ -255,7 +255,7 @@ export default function CourseDetailPage({
 
       coursePolylineRef.current = new window.Tmapv3.Polyline({
         path: routeCoords,
-        strokeColor: "#f3bf30",
+        strokeColor: "#56CCD4",
         strokeWeight: 6,
         strokeOpacity: 0.8,
         map: mapInstanceRef.current,
@@ -269,6 +269,7 @@ export default function CourseDetailPage({
     if (isSearchMode) {
       clearCourseRoute();
     } else if (mapInstanceRef.current && markers.length > 2) {
+      console.log("draw 실행");
       drawCourseRoute();
     }
   }, [isSearchMode]);

@@ -14,7 +14,7 @@ import { ReviewCheckDTO } from "@repo/types";
 
 import { Trash2 } from "lucide-react";
 
-const DEFAULT_IMAGE_URL = "/static/default-thumbnail.png";
+const DEFAULT_IMAGE_URL = "/static/default-thumbnail.webp";
 
 interface ReviewItemProps extends ReviewCheckDTO {
   currentUserId: string | null;

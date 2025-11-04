@@ -25,7 +25,7 @@ export default function HomePage({ promisedResponse }: HomePageProps) {
       <Carousel className="py-5" interval={5000}>
         <CarouselItem className="rounded-2xl p-4 shadow-lg">
           <h1 className="typo-bold">
-            꿈돌이님,
+            할방이님,
             <br />
             오늘 어떤 길을
             <br /> 걸어볼까요?

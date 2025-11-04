@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const notFoundImage = "/static/onboarding/step3.png";
+const notFoundImage = "/static/onboarding/step3.webp";
 
 export default function NotFound() {
   return (

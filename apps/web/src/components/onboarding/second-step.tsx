@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 import Button from "@/components/common/button";
 
-const step2 = "/static/onboarding/step2.png";
+const step2 = "/static/onboarding/step2.webp";
 
 export default function SecondStep() {
   const router = useRouter();
@@ -17,7 +17,7 @@ export default function SecondStep() {
   return (
     <section className="flex flex-1 flex-col">
       <div className="flex flex-1 flex-col items-center justify-center gap-10">
-        <Image src={step2} alt="두 번째 스텝 꿈돌이" width={300} height={300} />
+        <Image src={step2} alt="두 번째 스텝 할방이" width={300} height={300} />
         <div className="space-y-2.5">
           <h1 className="typo-bold text-center">
             순례길에 참여하여

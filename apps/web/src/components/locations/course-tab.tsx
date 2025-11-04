@@ -8,7 +8,7 @@ import { NearbyTouristSpotResponseDTO } from "@/models/spot";
 
 import { Loader2 } from "lucide-react";
 
-const DEFAULT_THUMBNAIL = "/static/default-thumbnail.png";
+const DEFAULT_THUMBNAIL = "/static/default-thumbnail.webp";
 
 interface CourseTabProps {
   title: string;

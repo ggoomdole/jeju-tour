@@ -13,7 +13,7 @@ interface ProfileStepProps {
   onNext: () => void;
 }
 
-const defaultProfile = "/static/default-profile.png";
+const defaultProfile = "/static/default-profile.webp";
 
 export default function ProfileStep({ form, onNext }: ProfileStepProps) {
   const [previewImage, setPreviewImage] = useState<string | null>(() => {
@@ -66,7 +66,7 @@ export default function ProfileStep({ form, onNext }: ProfileStepProps) {
             type="file"
             onChange={onFileChange}
             id="profile-image"
-            accept=".png,.jpeg,.jpg,image/png,image/jpeg,image/jpg"
+            accept=".webp,.jpeg,.jpg,image/png,image/jpeg,image/jpg"
             hidden
           />
         </section>

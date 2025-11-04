@@ -34,7 +34,7 @@ const getLevelIcon = (level: NativeType) => {
   }
 };
 
-const DEFAULT_IMAGE_URL = "/static/default-thumbnail.png";
+const DEFAULT_IMAGE_URL = "/static/default-thumbnail.webp";
 
 export default function CourseCard({
   roadId,
