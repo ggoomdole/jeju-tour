@@ -30,7 +30,7 @@ const SORT_OPTIONS = [
   },
 ];
 
-const DEFAULT_THUMBNAIL = "/static/default-thumbnail.png";
+const DEFAULT_THUMBNAIL = "/static/default-thumbnail.webp";
 
 export default function CourseDetailListPage({ id, promisedResponse }: CourseDetailListPageProps) {
   const { data } = use(promisedResponse);

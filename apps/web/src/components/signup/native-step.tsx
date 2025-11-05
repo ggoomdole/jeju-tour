@@ -14,22 +14,22 @@ interface NativeStepProps {
 const NATIVE_OPTIONS = [
   {
     title: "1년 미만",
-    description: "어서 와 대전은 처음이지? 숨겨진 매력을 알려드릴게요!",
+    description: "어서 와 제주도는 처음이지? 숨겨진 매력을 알려드릴게요!",
     value: NativeType.SHORT_TERM,
   },
   {
     title: "1년 ~ 5년",
-    description: "오, 대전 좀 아시는군요! 슬슬 대전 인싸의 향기가 풀풀~ 🚶‍♀️",
+    description: "오, 제주도 좀 아시는군요! 슬슬 제주도 인싸의 향기가 풀풀~ 🚶‍♀️",
     value: NativeType.MID_TERM,
   },
   {
     title: "5년 ~ 10년",
-    description: "이제 대전 토박이라 불러도 손색없겠어요! 찐 대전러 인정 👍",
+    description: "이제 제주도 토박이라 불러도 손색없겠어요! 찐 제주러 인정 👍",
     value: NativeType.LONG_TERM,
   },
   {
     title: "10년 이상",
-    description: "대전의 산증인! 명예 대전 시민으로 모실게요 👑",
+    description: "제주도의 산증인! 명예 제주도 시민으로 모실게요 👑",
     value: NativeType.RESIDENT,
   },
 ];
@@ -49,7 +49,7 @@ export default function NativeStep({ form, onSubmit }: NativeStepProps) {
     <>
       <main className="pb-with-floating-button flex flex-col gap-10 p-5">
         <h1 className="typo-bold">
-          대전에 거주하신지
+          제주도에 거주하신지
           <br />
           얼마나 되셨나요?
         </h1>

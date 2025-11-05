@@ -9,7 +9,7 @@ interface NearbyTouristSpotItemProps {
   disabled: boolean;
 }
 
-const DEFAULT_IMAGE = "/static/default-thumbnail.png";
+const DEFAULT_IMAGE = "/static/default-thumbnail.webp";
 
 export default function NearbyTouristSpotItem({
   title,

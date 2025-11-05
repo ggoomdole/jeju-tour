@@ -44,7 +44,7 @@ export default function StartButton() {
           <p>카카오 로그인</p>
         </button>
         <button
-          className="border-kakao max-w-mobile w-[90vw] rounded-xl border bg-white py-2 text-center"
+          className="border-main-900 max-w-mobile w-[90vw] rounded-xl border bg-white py-2 text-center"
           onClick={onRouteHome}
           disabled={isPending}
         >
