@@ -71,7 +71,7 @@ const drawTransitRoute = (map: TMap, transitData: TMapTransitResponse) => {
     const startMarker = new window.Tmapv3.Marker({
       position: new window.Tmapv3.LatLng(leg.start.lat, leg.start.lon),
       map,
-      icon: index === 0 ? "/static/start-pin.png" : undefined, // 첫 번째 구간의 시작점만 특별한 아이콘
+      icon: index === 0 ? "/static/start-pin.webp" : undefined, // 첫 번째 구간의 시작점만 특별한 아이콘
       iconSize: new window.Tmapv3.Size(40, 52),
       title: leg.start.name,
       zIndex: 99999,
@@ -80,7 +80,7 @@ const drawTransitRoute = (map: TMap, transitData: TMapTransitResponse) => {
     const endMarker = new window.Tmapv3.Marker({
       position: new window.Tmapv3.LatLng(leg.end.lat, leg.end.lon),
       map,
-      icon: index === itinerary.legs.length - 1 ? "/static/end-pin.png" : undefined, // 마지막 구간의 끝점만 특별한 아이콘
+      icon: index === itinerary.legs.length - 1 ? "/static/end-pin.webp" : undefined, // 마지막 구간의 끝점만 특별한 아이콘
       iconSize: new window.Tmapv3.Size(40, 52),
       title: leg.end.name,
       zIndex: 99999,

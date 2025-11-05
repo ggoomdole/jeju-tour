@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import ArrowLeft from "@/assets/arrow-left.svg";
 import { cn } from "@/lib/utils";
 
-const logo = "/static/logo.png";
+const logo = "/static/logo.webp";
 
 interface HeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   logoHeader?: boolean;
@@ -40,7 +40,7 @@ export default function Header(props: HeaderProps) {
     >
       {logoHeader ? (
         <Link href="/home">
-          <Image src={logo} alt="순례해유 로고" width={100} height={24} />
+          <Image src={logo} alt="순례해수깡 로고" width={124} height={24} />
         </Link>
       ) : (
         <button onClick={onClickBackButton}>

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const errorImage = "/static/error.png";
+const errorImage = "/static/error.webp";
 
 interface ErrorProps {
   error: Error;

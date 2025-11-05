@@ -5,7 +5,7 @@ import { SpotReviewDTO } from "@repo/types";
 
 import AverageStarRating from "../star/average-star-rating";
 
-const DEFAULT_THUMBNAIL = "/static/default-thumbnail.png";
+const DEFAULT_THUMBNAIL = "/static/default-thumbnail.webp";
 
 export default function LocationCard({
   avgReview,

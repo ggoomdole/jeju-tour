@@ -11,7 +11,7 @@ interface LocationMapPageProps {
   lng: string;
 }
 
-const MARKER = "/static/map-pin.png";
+const MARKER = "/static/map-pin.webp";
 
 export default function LocationMapPage({ lat, lng }: LocationMapPageProps) {
   const mapContainerRef = useRef<HTMLDivElement>(null);

@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 import Button from "@/components/common/button";
 
-const step3 = "/static/onboarding/step3.png";
+const step3 = "/static/onboarding/step3.webp";
 
 const KAKAO_CLIENT_ID = process.env.NEXT_PUBLIC_KAKAO_CLIENT_ID;
 const KAKAO_REDIRECT_URI = process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI;
@@ -24,7 +24,7 @@ export default function ThirdStep() {
   return (
     <section className="flex flex-1 flex-col">
       <div className="flex flex-1 flex-col items-center justify-center gap-10">
-        <Image src={step3} alt="세 번째 스텝 꿈돌이" width={300} height={300} />
+        <Image src={step3} alt="세 번째 스텝 할방이" width={300} height={300} />
         <div className="space-y-2.5">
           <h1 className="typo-bold text-center">
             다함께 만들어가는

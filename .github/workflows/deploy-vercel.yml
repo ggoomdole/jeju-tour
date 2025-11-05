@@ -1,4 +1,4 @@
-name: Deploy to Vercel with Redeploy-on-Failure
+name: Deploy to Vercel
 
 on:
   push:
@@ -29,30 +29,8 @@ jobs:
             --scope "$VERCEL_ORG_ID" \
             --project "$VERCEL_PROJECT_ID"
 
-      - name: Deploy & Redeploy on Failure
-        shell: bash
+      - name: Deploy to Production
         run: |
-          set +e
-
-          # 1) Initial production deploy (capture logs)
           npx vercel --prod --yes \
             --token "$VERCEL_TOKEN" \
-            --scope "$VERCEL_ORG_ID" > deploy.log 2>&1
-          EXIT_CODE=$?
-          cat deploy.log
-
-          # Extract deployment URL
-          DEPLOY_URL=$(grep -Eo 'https?://[A-Za-z0-9.-]+\.vercel\.app' deploy.log | head -n1)
-
-          # 2) If deploy failed, Redeploy using URL
-          if [ $EXIT_CODE -ne 0 ]; then
-            echo "❗️ Initial deployment failed (exit code=$EXIT_CODE). Redeploying"
-            npx vercel redeploy "$DEPLOY_URL" \
-              --token "$VERCEL_TOKEN" \
-              --scope "$VERCEL_ORG_ID"
-            REDO_EXIT=$?
-            if [ $REDO_EXIT -ne 0 ]; then
-              echo "::error::Redeploy failed (exit code=$REDO_EXIT)!"
-              exit 1
-            fi
-          fi
+            --scope "$VERCEL_ORG_ID"
