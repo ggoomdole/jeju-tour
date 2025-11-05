@@ -1,5 +1,4 @@
 import { Usable, use } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 import ArrowRight from "@/assets/arrow-right.svg";
@@ -11,7 +10,8 @@ import { COURSE_CATEGORIES } from "@/constants/category";
 import { BaseResponseDTO } from "@/models";
 import { RoadResponseDTO } from "@/models/road";
 
-const carouselExample = "/static/carousel-example.png";
+// 이미지 바뀌면 추후 다시 적용
+// const carouselExample = "/static/carousel-example.png";
 
 interface HomePageProps {
   promisedResponse: Usable<BaseResponseDTO<RoadResponseDTO[]>>;
@@ -35,7 +35,7 @@ export default function HomePage({ promisedResponse }: HomePageProps) {
             참여해보세요!
           </p>
         </CarouselItem>
-        <CarouselItem className="relative overflow-hidden rounded-2xl shadow-lg">
+        {/* <CarouselItem className="relative overflow-hidden rounded-2xl shadow-lg">
           <Image
             src={carouselExample}
             alt="carousel-example"
@@ -43,7 +43,7 @@ export default function HomePage({ promisedResponse }: HomePageProps) {
             className="object-cover"
             draggable={false}
           />
-        </CarouselItem>
+        </CarouselItem> */}
       </Carousel>
       <section className="flex items-center gap-2.5 px-5">
         <h2 className="typo-semibold">추천 순례길</h2>
