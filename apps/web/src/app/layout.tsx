@@ -13,19 +13,19 @@ const pretendard = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "순례해수깡",
+  title: "순례합서",
   description: "나만의 제주도 순례길을 만들고 다른 사람들과 공유하세요.",
   openGraph: {
-    title: "순례해수깡",
+    title: "순례합서",
     description: "나만의 제주도 순례길을 만들고 다른 사람들과 공유하세요.",
     images: "/og-image.png",
     url: "https://halbange.kro.kr/",
-    siteName: "순례해수깡",
+    siteName: "순례합서",
     locale: "ko_KR",
     type: "website",
   },
   keywords: [
-    "순례해수깡",
+    "순례합서",
     "순례길",
     "순례",
     "제주도 순례길",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     "제주도 여행 코스 추천",
     "제주도 여행 코스 추천 사이트",
   ],
-  applicationName: "순례해수깡",
+  applicationName: "순례합서",
   alternates: {
     canonical: "https://halbange.kro.kr/",
   },

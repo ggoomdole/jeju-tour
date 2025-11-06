@@ -40,7 +40,7 @@ export default function Header(props: HeaderProps) {
     >
       {logoHeader ? (
         <Link href="/home">
-          <Image src={logo} alt="순례해수깡 로고" width={124} height={24} />
+          <Image src={logo} alt="순례합서 로고" width={99} height={24} />
         </Link>
       ) : (
         <button onClick={onClickBackButton}>
