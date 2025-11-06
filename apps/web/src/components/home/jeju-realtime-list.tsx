@@ -3,6 +3,8 @@ import Image from "next/image";
 import { REALTIME_CATEGORIES } from "@/constants/category";
 import { JejuRealtimeLinkDataDTO, JejuRealtimeResponseDTO } from "@/models/jeju";
 
+import { ExternalLink } from "lucide-react";
+
 import { Carousel, CarouselItem } from "../common/carousel";
 import QueryTabNav from "../query-tab-nav";
 
@@ -22,7 +24,17 @@ export default function JejuRealtimeList({ realtimeData }: JejuRealtimeListProps
 
   return (
     <section className="py-5">
-      <h2 className="typo-semibold mx-5">실시간 관광객 유동인구</h2>
+      <div className="mx-5 flex items-center justify-between">
+        <h2 className="typo-semibold">실시간 관광객 유동인구</h2>
+        <a
+          target="_blank"
+          href="https://data.ijto.or.kr/bigdatamap/jeju/widget/main.do"
+          className="flex items-center gap-1"
+        >
+          <p className="typo-regular">자세히 보기</p>
+          <ExternalLink className="size-4" />
+        </a>
+      </div>
       <QueryTabNav navKey="realtime" navs={REALTIME_CATEGORIES} />
       {realtimeData.linkData.length > 0 ? (
         <Carousel className="px-5 py-2.5" interval={0}>
