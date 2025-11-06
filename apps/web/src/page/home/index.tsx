@@ -4,10 +4,12 @@ import Link from "next/link";
 import ArrowRight from "@/assets/arrow-right.svg";
 import CourseCard from "@/components/common/card/course-card";
 import { Carousel, CarouselItem } from "@/components/common/carousel";
+import JejuRealtimeList from "@/components/home/jeju-realtime-list";
 import NearbyTouristSpotList from "@/components/home/nearby-tourist-spot-list";
 import QueryTabNav from "@/components/query-tab-nav";
 import { COURSE_CATEGORIES } from "@/constants/category";
 import { BaseResponseDTO } from "@/models";
+import { JejuRealtimeResponseDTO } from "@/models/jeju";
 import { RoadResponseDTO } from "@/models/road";
 
 // 이미지 바뀌면 추후 다시 적용
@@ -15,10 +17,12 @@ import { RoadResponseDTO } from "@/models/road";
 
 interface HomePageProps {
   promisedResponse: Usable<BaseResponseDTO<RoadResponseDTO[]>>;
+  realtimeResponse: Usable<JejuRealtimeResponseDTO>;
 }
 
-export default function HomePage({ promisedResponse }: HomePageProps) {
+export default function HomePage({ promisedResponse, realtimeResponse }: HomePageProps) {
   const response = use(promisedResponse);
+  const realtimeData = use(realtimeResponse);
 
   return (
     <main className="pb-navigation">
@@ -45,6 +49,7 @@ export default function HomePage({ promisedResponse }: HomePageProps) {
           />
         </CarouselItem> */}
       </Carousel>
+      <JejuRealtimeList realtimeData={realtimeData} />
       <section className="flex items-center gap-2.5 px-5">
         <h2 className="typo-semibold">추천 순례길</h2>
         <Link href="/courses" className="flex items-center text-gray-700">

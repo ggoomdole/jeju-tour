@@ -5,7 +5,6 @@ import localFont from "next/font/local";
 
 import RootProvider from "@/components/provider/root-provider";
 import ScriptProvider from "@/components/provider/script-provider";
-import ThirdPartiesProvider from "@/components/provider/third-parties-provider";
 
 const pretendard = localFont({
   src: "./fonts/PretendardVariable.woff2",
@@ -20,7 +19,7 @@ export const metadata: Metadata = {
     title: "순례해수깡",
     description: "나만의 제주도 순례길을 만들고 다른 사람들과 공유하세요.",
     images: "/og-image.png",
-    url: "https://ggoomdole.kro.kr/",
+    url: "https://halbange.kro.kr/",
     siteName: "순례해수깡",
     locale: "ko_KR",
     type: "website",
@@ -39,7 +38,7 @@ export const metadata: Metadata = {
   ],
   applicationName: "순례해수깡",
   alternates: {
-    canonical: "https://ggoomdole.kro.kr/",
+    canonical: "https://halbange.kro.kr/",
   },
   robots: {
     index: true,
@@ -57,7 +56,6 @@ export default function RootLayout({
       <body className={pretendard.className}>
         <ScriptProvider />
         <RootProvider>{children}</RootProvider>
-        <ThirdPartiesProvider />
       </body>
     </html>
   );

@@ -22,3 +22,14 @@ export const COURSE_CATEGORIES = [
     path: "3",
   },
 ];
+
+export const REALTIME_CATEGORIES = [
+  {
+    name: "핫플레이스",
+    path: "",
+  },
+  {
+    name: "제주축제",
+    path: "festival",
+  },
+];
