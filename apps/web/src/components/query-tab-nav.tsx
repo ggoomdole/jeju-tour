@@ -45,7 +45,7 @@ function QueryTabNavWithoutSuspense({ navKey, navs }: QueryTabNavProps) {
               currentStatus === nav.path && "text-main-900 border-b-main-900 border-b-2"
             )}
           >
-            <Link replace href={url(navKey, nav.path, searchParams)}>
+            <Link scroll={false} replace href={url(navKey, nav.path, searchParams)}>
               {nav.name}
             </Link>
           </li>
