@@ -1,4 +1,5 @@
 import { Usable, use } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 import ArrowRight from "@/assets/arrow-right.svg";
@@ -12,8 +13,7 @@ import { BaseResponseDTO } from "@/models";
 import { JejuRealtimeResponseDTO } from "@/models/jeju";
 import { RoadResponseDTO } from "@/models/road";
 
-// 이미지 바뀌면 추후 다시 적용
-// const carouselExample = "/static/carousel-example.png";
+const carouselExample = "/static/carousel-example.webp";
 
 interface HomePageProps {
   promisedResponse: Usable<BaseResponseDTO<RoadResponseDTO[]>>;
@@ -27,7 +27,7 @@ export default function HomePage({ promisedResponse, realtimeResponse }: HomePag
   return (
     <main className="pb-navigation">
       <Carousel className="py-5" interval={5000}>
-        <CarouselItem className="rounded-2xl p-4 shadow-lg">
+        <CarouselItem className="aspect-carousel flex flex-col justify-center rounded-2xl p-4 shadow-lg">
           <h1 className="typo-bold">
             할방이님,
             <br />
@@ -39,7 +39,7 @@ export default function HomePage({ promisedResponse, realtimeResponse }: HomePag
             참여해보세요!
           </p>
         </CarouselItem>
-        {/* <CarouselItem className="relative overflow-hidden rounded-2xl shadow-lg">
+        <CarouselItem className="aspect-carousel relative overflow-hidden rounded-2xl shadow-lg">
           <Image
             src={carouselExample}
             alt="carousel-example"
@@ -47,7 +47,7 @@ export default function HomePage({ promisedResponse, realtimeResponse }: HomePag
             className="object-cover"
             draggable={false}
           />
-        </CarouselItem> */}
+        </CarouselItem>
       </Carousel>
       <JejuRealtimeList realtimeData={realtimeData} />
       <section className="flex items-center gap-2.5 px-5">
