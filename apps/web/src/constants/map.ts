@@ -1,6 +1,6 @@
 export const DEFAULT_MAP_CENTER = {
-  lat: 36.331523,
-  lng: 127.433634,
+  lat: 33.485961,
+  lng: 126.479744,
 };
 
 export const DEFAULT_MAP_ZOOM = 15;
